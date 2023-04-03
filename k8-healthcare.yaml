@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: health-deploy
+  labels:
+    app: tanisha-healthcare-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tanisha-healthcare-app
+  template:
+    metadata:
+      labels:
+        app: tanisha-healthcare-app
+    spec:
+      containers:
+      - name: tanisha-healthcare-container
+        image: agarwaltani/healthcareimage:latest
+        ports:
+        - containerPort: 8083
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tanisha-health-service
+  labels:
+    app: tanisha-healthcare-app
+spec:
+  selector:
+    app: tanisha-healthcare-app
+
+  type: NodePort
+  ports:
+  - nodePort: 30001
+    port: 8083
+    targetPort: 8083
+    
