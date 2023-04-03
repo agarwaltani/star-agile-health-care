@@ -32,7 +32,7 @@ spec:
 
   type: NodePort
   ports:
-  - nodePort: 30001
+  - nodePort: 32003
     port: 8083
     targetPort: 8083
     
