@@ -18,7 +18,7 @@ spec:
       - name: tanisha-healthcare-container
         image: agarwaltani/healthcareimage:latest
         ports:
-        - containerPort: 8083
+        - containerPort: 8082
 ---
 apiVersion: v1
 kind: Service
@@ -33,6 +33,6 @@ spec:
   type: NodePort
   ports:
   - nodePort: 32003
-    port: 8083
-    targetPort: 8083
+    port: 8082
+    targetPort: 8082
     
